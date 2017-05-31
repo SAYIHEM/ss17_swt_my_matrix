@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyMatrix (Exam WS 2008/09) – INLOOP</title>
+  <style class="anchorjs"></style><link rel="stylesheet" type="text/css" href="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/inloop.css">
+  
+  <link rel="stylesheet" type="text/css" href="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/syntax.css">
+
+</head>
+<body class="autolink">
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://inloop.inf.tu-dresden.de/">INLOOP</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+  <li><a href="https://inloop.inf.tu-dresden.de/">Home</a></li>
+  <li><a href="https://inloop.inf.tu-dresden.de/account/profile/">My Profile</a></li>
+  
+  <li><a id="logout-link" href="https://inloop.inf.tu-dresden.de/logout/">Logout</a></li>
+
+
+      </ul>
+    </div>
+    
+
+<form id="logout-form" method="post" action="/logout/">
+  <input name="csrfmiddlewaretoken" value="Vvgwjw1gI2ynBVP2Zi0X7Kp9jOQkfMlCA67DcVQFa4tjoa2TEKp1ya85bSAl6sQF" type="hidden">
+</form>
+<script src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/logout.js"></script>
+
+
+  </div>
+</nav>
+
+<div class="container">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li><a href="https://inloop.inf.tu-dresden.de/tasks/">Tasks</a></li>
+  <li><a href="https://inloop.inf.tu-dresden.de/tasks/category/exam/">Exam</a></li>
+  <li class="active">MyMatrix (Exam WS 2008/09)</li>
+</ol>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active">
+    <a href="https://inloop.inf.tu-dresden.de/tasks/mymatrix/">Description</a>
+  </li>
+  <li role="presentation">
+    <a href="https://inloop.inf.tu-dresden.de/solutions/mymatrix/upload">Manual upload</a>
+  </li>
+  <li role="presentation">
+    <a href="https://inloop.inf.tu-dresden.de/solutions/mymatrix/">Your solutions</a>
+  </li>
+</ul>
+
+<div class="static-tab-content">
+
+<h1>MyMatrix (Exam WS 2008/09)</h1>
+<p>Take a look at the following interface of a data structure representing a matrix.</p>
+<pre class="codehilite language-java"><code class=" language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Matrix</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">getRowCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">getColumnCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">getObjectCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">getDistinctObjectCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Iterator<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    T <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> row<span class="token punctuation">,</span> <span class="token keyword">int</span> column<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    T put <span class="token punctuation">(</span><span class="token keyword">int</span> row<span class="token punctuation">,</span> <span class="token keyword">int</span> column<span class="token punctuation">,</span> T value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> <span class="token function">contains</span><span class="token punctuation">(</span>T value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+
+<h2 id="example">Example<a style="font: 1em/1 anchorjs-icons; padding-left: 0.375em;" data-anchorjs-icon="" aria-label="Anchor link for: example" href="#example" class="anchorjs-link "></a></h2>
+<p>To understand how the data structure is supposed to work, take a look at the following example.</p>
+<pre class="codehilite language-java"><code class=" language-java">Matrix<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> m <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyMatrix</span><span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+String a <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">;</span>
+String b <span class="token operator">=</span> <span class="token string">"b"</span><span class="token punctuation">;</span>
+
+m<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+m<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+m<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+
+<p>The state of the matrix after executing that code looks like this:</p>
+<pre><strong>    0       1       2       3</strong>
+<strong>0</strong>   null    a       null    null
+<strong>1</strong>   null    null    null    b
+<strong>2</strong>   a       null    null    null
+</pre>
+
+<p>The following table shows the result of exemplary calls of methods of <code>Matrix</code> which should give you an impression of what these methods do.</p>
+<table>
+    <tbody><tr>
+        <th>Method call</th>
+        <th>Result / returns</th>
+    </tr>
+    <tr>
+        <td><code>getRowCount()</code></td>
+        <td><code>3</code></td>
+    </tr>
+    <tr>
+        <td><code>getColumnCount()</code></td>
+        <td><code>4</code></td>
+    </tr>
+    <tr>
+        <td><code>getObjectCount()</code></td>
+        <td><code>3</code></td>
+    </tr>
+    <tr>
+        <td><code>getDistinctObjectCount()</code></td>
+        <td><code>2</code></td>
+    </tr>
+    <tr>
+        <td><code>iterator()</code></td>
+        <td>an instance of <code>MyMatrix.DepthFirstIterator</code></td>
+    </tr>
+    <tr>
+        <td><code>get(2, 0)</code></td>
+        <td><code>a</code></td>
+    </tr>
+    <tr>
+        <td><code>get(1, 2)</code></td>
+        <td><code>null</code></td>
+    </tr>
+    <tr>
+        <td><code>get(0, 4)</code></td>
+        <td><code>IllegalArgumentException</code></td>
+    </tr>
+    <tr>
+        <td><code>put(2, 0, b)</code></td>
+        <td><code>a</code></td>
+    </tr>
+    <tr>
+        <td><code>put(0, 0, b)</code></td>
+        <td><code>null</code></td>
+    </tr>
+    <tr>
+        <td><code>contains(a)</code></td>
+        <td><code>true</code></td>
+    </tr>
+</tbody></table>
+
+<h2 id="hints">Hints<a style="font: 1em/1 anchorjs-icons; padding-left: 0.375em;" data-anchorjs-icon="" aria-label="Anchor link for: hints" href="#hints" class="anchorjs-link "></a></h2>
+<ul>
+<li>An entry of the matrix is defined as empty if it holds the value <code>null</code> or its row or column do not exist.</li>
+<li>The row and column counts are non-negative integers.<ul>
+<li>The methods <code>getRowCount()</code> and <code>getColumnCount()</code> do not count empty rows at the bottom edge or empty columns at the right edge of the matrix.</li>
+</ul>
+</li>
+<li>The method <code>getObjectCount()</code> only counts the non-empty entries of the matrix.</li>
+<li>The method <code>getDistinctObjectCount()</code> only counts the number of different objects in the matrix.</li>
+<li>Implement the iterator (provided by <code>MyMatrix.iterator()</code>) with the iterator pattern.<ul>
+<li>Implement the iterator (<code>DepthFirstIterator</code>) as inner class of <code>MyMatrix</code>.</li>
+<li>The iterator traverses the matrix first in depth, then in width, hence the name.</li>
+<li>Implement the methods <code>next()</code> and <code>hasNext()</code> according to the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">specification of the Iterator interface</a>. The method <code>remove()</code> is not supported by the iterator.</li>
+<li><code>null</code> objects are skipped by the iterator, so they are not provided by <code>next()</code>.</li>
+</ul>
+</li>
+<li>The method <code>get(int row, int column)</code> returns the object at the given row and column.</li>
+<li>The method <code>put(int row, int column, T value)</code> assigns the object <code>value</code> to the entry at position (<code>row</code>, <code>column</code>). The method returns the original object which was replaced by <code>value</code>. If nothing (<code>null</code>) was at the position previously, the method returns <code>null</code>.</li>
+<li>The method <code>contains(T value)</code> checks if the matrix contains the given object <code>value</code> of type <code>T</code>.</li>
+<li><code>Matrix</code> should be generic and the type variable <code>T</code> determines the type of objects that can be put into the matrix. Save the entries in a <code>java.util.Map</code>.<ul>
+<li>Use the class <code>java.util.HashMap&lt;K,V&gt;</code> for the matrix and <code>java.awt.Point</code> for the positions.</li>
+</ul>
+</li>
+</ul>
+<h2 id="design">Design<a style="font: 1em/1 anchorjs-icons; padding-left: 0.375em;" data-anchorjs-icon="" aria-label="Anchor link for: design" href="#design" class="anchorjs-link "></a></h2>
+<p>The UML class diagram shows the general design of the implementation.</p>
+<p><img alt="Class diagram" src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/MyMatrix_ClassDiagram.png"></p>
+<h2 id="task">Task<a style="font: 1em/1 anchorjs-icons; padding-left: 0.375em;" data-anchorjs-icon="" aria-label="Anchor link for: task" href="#task" class="anchorjs-link "></a></h2>
+<p>Implement the matrix class (<code>MyMatrix</code>) including its iterator (<code>DepthFirstIterator</code>) and the interface (<code>Matrix</code>)!</p>
+<h2 id="resources">Resources<a style="font: 1em/1 anchorjs-icons; padding-left: 0.375em;" data-anchorjs-icon="" aria-label="Anchor link for: resources" href="#resources" class="anchorjs-link "></a></h2>
+<ul>
+<li><a href="https://inloop.inf.tu-dresden.de/tasks/mymatrix/attachments/MyMatrix_tests.zip">JUnit tests</a></li>
+<li><a href="https://inloop.inf.tu-dresden.de/tasks/mymatrix/attachments/st_exam_ws0809.pdf">Related exam task</a></li>
+</ul>
+
+</div>
+
+
+</div>
+
+<footer class="footer">
+  <div class="container clearfix">
+    <ul class="list-inline footer-left">
+      <li class="text-muted">
+        © 2017 <a href="https://github.com/st-tu-dresden/inloop">@st-tu-dresden</a>
+      </li>
+    </ul>
+    <ul class="list-inline footer-right">
+
+      <li><a href="https://inloop.inf.tu-dresden.de/about/imprint/">Imprint</a></li>
+
+    </ul>
+  </div>
+</footer>
+
+<script src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/jquery.js"></script>
+<script src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/bootstrap.js"></script>
+
+<script src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/prism.js"></script>
+<script src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/prism-java.js"></script>
+<script src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/anchor.js"></script>
+<script src="MyMatrix%20%28Exam%20WS%202008_09%29%20%E2%80%93%20INLOOP_files/inloop.js"></script>
+
+
+
+
+</body></html>
